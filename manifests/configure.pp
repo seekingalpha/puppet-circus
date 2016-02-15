@@ -7,10 +7,13 @@ class circus::configure {
   }
 
   file { "${::circus::conf_prefix}/circus/conf.d":
-    ensure => 'directory',
-    owner  => '0',
-    group  => '0',
-    mode   => '0755',
+    ensure  => 'directory',
+    owner   => '0',
+    group   => '0',
+    mode    => '0755',
+    recurse => true,
+    purge   => true,
+    force   => true,
   }
 
   file { "${::circus::conf_prefix}/circus/circusd.ini":
